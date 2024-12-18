@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Product launch task</p>
+{% endblock %}
+
+{% block content %}
+
+    <br>
+    <p style="text-align: center; font-size:20px"><b>Round {{ subsession.round_number }}</b></p>
+
+    <p style="text-align: center">
+        The revenue generated if all employees endorse the same New Product this round is <b>{{ group_payoff }} GC</b>/240 GC.
+    <br></p>
+
+    <p style="text-align: center"><br><b>In this round, which of the New Products do you want to endorse?</b></p>
+    <div style="text-align: center">
+        <button name="chosen_name" value="Tao" class="btn btn-primary btn-large">Tao</button>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <button name="chosen_name" value="Eta" class="btn btn-primary btn-large">Eta</button>
+    </div>
+
+    <input type="hidden" name="timeChoice" id="timeChoice"/> 
+    <script>
+        var pageTimeElapsed = 0;
+        var pageTimerID = -1;
+        function pageTick() {
+            pageTimeElapsed++
+            document.getElementById("timeChoice").value = pageTimeElapsed;
+        }
+        window.onload = function() { 
+            if(pageTimerID == -1){
+                pageTimerID = setInterval(pageTick, 1);
+            } 
+        };
+    </script>
+
+    {{ form.chosen_name.errors }}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Questionnaire 6: Second-order Belief in Climate Change</p>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        In this last questionnaire, you are asked how much you think other people believe in climate change.
+        For each statement, estimate on a scale of 0 (no one) to 10 (everyone) the fraction of people who:
+    </p>
+
+    <br>
+
+<table class="table">
+    {% for field in form %}
+        <tr>
+            <td style="text-align: center">{{ field.label }}</td>
+            {% for choice in field %}
+                <td>{{ choice }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+    <br>
+
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}

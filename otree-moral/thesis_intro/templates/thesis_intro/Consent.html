@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Consent form</p>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        In this research study on decision-making, we collect information about your choices and response times.
+        To use this data for our research, we need your consent.
+    </p>
+
+    <br>
+
+    <p>
+        <b>Please tick all boxes that apply:</b>
+    </p>
+
+    {% formfields %}
+
+    <br>
+
+    <p>
+        <i>For any questions or complaints, you can contact Dr. Anne Urai at a.e.urai@fsw.leidenuniv.nl.</i>
+    </p>
+    
+    <br>
+
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}
+
+

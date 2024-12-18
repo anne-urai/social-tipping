@@ -1,0 +1,46 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Part 1: Product launch task</p>
+{% endblock %}
+
+{% block content %}
+
+    <p style="text-align: center"><b>Instructions: YOU HAVE BEEN ASSIGNED A SPECIAL ROLE IN THIS EXPERIMENT!</b></p>
+    <p>
+        <b>You will not be playing the game</b> and are given an alternative task that is described below.
+    </p>
+    <p>
+        Your role in the experiment will be to be an <b>external observer of the game</b>. After every round of the
+        game, you will be shown how many of the participants that are playing the game endorsed each New Product (see
+        the first screenshot below). Based on that information, you will be asked to <b>assess which New Product
+        represents an optimal choice for a participant that wants to earn as much GC as possible</b> in the
+        experiment (see the second screenshot below). In other words, your task is to mentally put yourself in the
+        shoes of an actual game participant and make the best possible New Product endorsement. Note that <i>your
+        choices will not have any actual influence on the game itself</i>.
+    </p>
+    <p><br>
+        <img src="{% static 'ResultsC.PNG' %}" alt="The result page screenshot" style="width:310px;height:329px;
+        display:block;margin-right:auto;margin-left:auto;border:1px solid #017AFF"/>
+    <br></p>
+    <p>
+        <img src="{% static 'ChoiceC.PNG' %}" alt="The company name choice screenshot" style="width:790px;height:160px;
+        display:block;margin-right:auto;margin-left:auto;border:1px solid #017AFF"/>
+    <br></p>
+    <p>
+        Additionally, please note that while in <i>Round 1</i> we cannot provide you with actual game participant's
+        choices (as they have not made their choices yet), you will still be asked to provide your estimation of what
+        you think is the optimal choice. Thus, in this round specifically, base your answer on what you feel like is
+        the more attractive product name that an average participant is more likely to choose.
+    </p>
+    <p>
+    In case you have any questions regarding your role in the study, <i>please discretely ask the experimenter now</i>. <br />
+    If you feel like you fully understand your role, you may click on the 'Next' button below and begin
+    answering questions testing your understanding of the game.
+    </p>
+
+    <br>
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}

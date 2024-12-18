@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">The company name game</p>
+{% endblock %}
+
+{% block content %}
+
+    <p style="text-align: center"><i><b>Understanding of the game</b></i></p>
+
+        <p style="text-align: center">Your answer is {% if player.cund5 %}<span style="color: limegreen">correct</span>{% else %}<span style="color: red">wrong</span>{% endif %}.
+            The other participants do NOT know you have a special role in the experiment.
+        </p>
+
+        <p><b style="text-align: center">
+            You have now finished the instructions and are ready to begin the game. Click 'Next' below to start the game!
+        </b></p>
+
+    <div style="text-align: center">{% next_button %}</div>
+{% endblock %}

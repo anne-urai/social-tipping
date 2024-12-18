@@ -1,0 +1,33 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Questionnaire 3: Impulsivity</p>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        This questionnaire ask about your personality characteristics in regards to how impulsive you are.
+        You are asked to rate how much you think the statement applies to you. The statements on a 4-point scale, ranging from
+        never (left) to always (right). Please answer honestly and don't spend too much time answering these questions.
+    </p>
+
+    <br>
+
+<table class="table">
+    {% for field in form %}
+        <tr>
+            <td style="text-align: center">{{ field.label }}</td>
+            {% for choice in field %}
+                <td>{{ choice }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+    <br>
+
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}

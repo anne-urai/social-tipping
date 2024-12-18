@@ -1,0 +1,91 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Product launch task</p>
+{% endblock %}
+
+{% block content %}
+
+    <p style="text-align: center"><i><b>Instructions 1/2: Task description</b></i></p>
+    <p>
+        You and the other participants surrounding you are employees at a start-up company that is developing two <b>New
+        Products: Tao and Eta</b>. Only one of the New Products will be released to the public. Your task is to collectively
+        decide which New Product to release through multiple rounds of interaction. In each round, you can
+        <b>personally endorse one of the New Products</b> (see the screenshot below).
+    </p>
+    <p><br>
+        <img src="{% static 'Choice.PNG' %}" alt="The product choice screenshot" style="width:729px;height:210px;
+        display:block;margin-right:auto;margin-left:auto;border:1px solid #017AFF"/>
+    <br></p>
+    <p>
+        In each round, after all employees endorse one of the New Products, everyone will be able to see <b>the percentage
+        of employees </b> and <b>the nicknames of employees</b> that endorsed each of the New Products in the current
+        round (see the screenshot below). In order for one of the New Products to be released, it needs unanimous
+        endorsement. <b>This means that the task continues until the round in which all employees endorse the same
+        New Product.</b> If after 24 rounds there is still no full agreement on which New Product to release, none of
+        the New Products gets released.
+    </p>
+    <p><br>
+        <img src="{% static 'Results.PNG' %}" alt="The outcome screenshot" style="width:500px;height:400px;
+        display:block;margin-right:auto;margin-left:auto;border:1px solid #017AFF"/>
+    <br></p>
+    <p style="text-transform: uppercase"><b>
+        Please note that, during the game, you are not allowed to physically or verbally communicate with other
+        participants in any way as it could influence the results. Doing so will result in immediate exclusion from
+        the rest of the experiment.
+    </b></p>
+
+    <br>
+    <p style="text-align: center"><i><b>Instructions 2/2: Game point system and payoffs</b></i></p>
+    <p>
+        For your participation you will receive either SONA credits or a financial payoff, depending on what you participate for.
+    </p>
+    <p>
+        In the game the release of the New Product generates revenue, represented by <b>Game Currency (GC)</b>.
+        Every employee receives a part of this revenue in GC (NOT real money). How much revenue the product generates
+        is determined by the amount of rounds it takes your company to launch the product. <b>With every additional round</b>,
+        the novelty of the product wears off and <b>the generated revenue decreases</b> (see table below). However, in all cases,
+        note that if you <b>do not reach a consensus</b>, no New Product gets released and <b>all employees receive 0 GC</b>.
+    </p>
+    <br><table class="table">
+        <tr><th>Round number</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>...</td>
+            <td>24</td><td><b>No release</b></td></tr>
+        <tr><th>Generated revenue if a New Product is released in this round</th><td>240 GC</td><td>235 GC</td><td>230 GC</td>
+            <td>225 GC</td><td>220 GC</td><td>215 GC</td><td>...</td><td>120 GC</td><td><b>0 GC</b></td></tr>
+        <tr><th></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    <p>
+        The amount of shares of the released New Product you own at the end of the game depends on how often you endorsed it. <b>For every round
+        in which you endorse a New Product</b> (for example Tao), you <b>receive one share of that specific New Product</b> (Tao).
+        The proportion of shares of the released New Product you own at the end of the game determines the portion of its generated
+        revenue in GC you receive.
+    </p>
+    <br>
+    <p>
+        To make sure you understand the instructions, let us take a look at an example. In the table below, you may see
+        the outcome of three people that engaged in the described task. The amount of GC each of them earns is determined as
+        follows. First, since all employees endorsed Tao in Round 5, <i>Tao is the New Product that gets released</i>. Second,
+        since Tao is <i>launched in Round 5, it generates a revenue of 220 GC</i>. Third, in total, 10 shares of Tao were issued:
+        Lotte got 5 shares, Jesse got 4 shares, and Otto got 1 share. Therefore, Lotte receives 50% of the generated revenue,
+        Jesse 40%, and Otto 10%. Translated into GC, Lotte receives 110 GC, Jesse receives 88 GC and Otto receives 22 GC.
+    </p>
+    <br><table class="table">
+        <tr><td>Round number</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><th>GC awarded</th></tr>
+        <tr style="color: limegreen"><td>Lotte's endorsements</td><td>Tao</td><td>Tao</td><td>Tao</td><td>Tao</td><td>Tao</td><th>110</th></tr>
+        <tr><td>Jesse's endorsements</td><td>Eta</td><td>Tao</td><td>Tao</td><td>Tao</td><td>Tao</td><th>88</th></tr>
+        <tr style="color: red"><td>Otto's endorsements</td><td>Eta</td><td>Eta</td><td>Eta</td><td>Eta</td><td>Tao</td><th>22</th></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+
+    <br>
+    <p>
+        In case you have any questions regarding the task or instructions, <i>please ask the experimenter now</i>. <br />
+        If you feel like you fully understand the instructions, you may click on the 'Next' button below and begin
+        answering questions testing your understanding of the game.
+    </p>
+
+    <br>
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}

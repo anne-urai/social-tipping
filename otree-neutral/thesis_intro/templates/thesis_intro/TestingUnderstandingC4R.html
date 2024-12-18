@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">The company name game</p>
+{% endblock %}
+
+{% block content %}
+
+    <p style="text-align: center"><i><b>Understanding of the game</b></i></p>
+
+        <p style="text-align: center">Your answer is {% if player.cund4 %}<span style="color: limegreen">correct</span>{% else %}<span style="color: red">wrong</span>{% endif %}.
+            Since you act as an external observer of the game, your choices have no direct effect on the task.</p>
+
+    <div style="text-align: center">{% next_button %}</div>
+{% endblock %}

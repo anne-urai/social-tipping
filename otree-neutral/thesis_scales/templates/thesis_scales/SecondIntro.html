@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Part 2: Questionnaires</p>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        By reaching this page, you have finished the game by either reaching consensus or finishing 24 rounds of
+        the game. Now, please fill out the second (and final) part of this study.
+        This part consists of a few short questionnaires inquiring about how you experienced the game, your personality,
+        your attitudes towards climate change, and your demographic characteristics. <br />
+        If you do not feel comfortable answering any of the questions your can leave them open.
+    </p>
+    <p>
+        <i>Please click on the 'Next' button below to begin filling out the questionnaires.</i>
+    </p>
+
+    <br>
+
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}

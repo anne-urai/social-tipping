@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Questionnaire 5: Climate Change Worry</p>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        In this questionnaire, you can find some statements inquiring about how much you worry about climate change.
+        Indicate how often you worry about each item, rated on a 5-point scale from never (left) to always (right).
+    </p>
+
+    <br>
+
+<table class="table">
+    {% for field in form %}
+        <tr>
+            <td style="text-align: center">{{ field.label }}</td>
+            {% for choice in field %}
+                <td>{{ choice }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+    <br>
+
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}

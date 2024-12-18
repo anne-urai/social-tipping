@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Product launch task</p>
+{% endblock %}
+
+{% block content %}
+
+    <p style="text-align: center"><i><b>Understanding of the task</b></i></p>
+
+        <p style="text-align: center">Your answer is {% if player.und3 %}<span style="color: limegreen">correct</span>{% else %}<span style="color: red">wrong</span>{% endif %}.
+            The revenue generated from the released New Product depends on the amount of rounds it took you and the other participants to reach a consensus.</p>
+
+    <div style="text-align: center">{% next_button %}</div>
+{% endblock %}

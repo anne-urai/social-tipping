@@ -1,0 +1,33 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Questionnaire 1: Game-related Questions</p>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        In this first questionnaire, you are asked to answer some questions regarding how you felt during the task.
+        Please answer the statements as honestly as possible. You are asked to rate each statements on a 5-point scale,
+        ranging from strongly disagreeing (left) with the statement to strongly agreeing (right) with the statement.
+    </p>
+
+    <br>
+
+<table class = "table">
+    {% for field in form %}
+        <tr>
+            <td style="text-align: center">{{ field.label }}</td>
+            {% for choice in field %}
+                <td>{{ choice }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+    <br>
+
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}

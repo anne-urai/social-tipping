@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Final page</p>
+{% endblock %}
+
+{{ block scripts }}
+<script>
+    let linkOfTheWebsiteUserCame = document.referrer;
+    if (linkOfTheWebsiteUserCame ) {        
+        document.getElementById("qualtrics").style.display = "block";
+    }
+
+</script>
+{{ endblock }}
+
+{{ block content }}
+<p>
+    You have arrived at the end of the study. We want to kindly thank you for your participation. <br />
+    Please click on the button below to go to the questionnaire where we ask you to fill in some personal information
+    so that we can award you with SONA credits or a financial payoff for your participation. <br />
+    In case you have any additional questions at this moment, you may directly ask the experimenter present in the room.
+</p>
+
+<br>
+
+<div id="qualtrics" style="text-align: center" type="button" onclick="window.open(js_vars.link, target='_self');" class="otree-btn-next btn btn-primary next-button otree-next-button" >Go to Qualtrics</div>
+
+{{ endblock }}

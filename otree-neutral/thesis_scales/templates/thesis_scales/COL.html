@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Questionnaire 2: Collectivism</p>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        This second questionnaire asks some statements about how important collectivistic attitudes are for you.
+        The last question is about your preference for consistent behaviour.
+        For each item, indicate how much you agree or disagree with what the item says.
+        You are asked to rate the statements on a 5-point scale, ranging from
+        totally disagreeing (left) to totally agreeing (right) with the statement.
+    </p>
+
+    <br>
+
+<table class="table">
+    {% for field in form %}
+        <tr>
+            <td style="text-align: center">{{ field.label }}</td>
+            {% for choice in field %}
+                <td>{{ choice }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+    <br>
+
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}

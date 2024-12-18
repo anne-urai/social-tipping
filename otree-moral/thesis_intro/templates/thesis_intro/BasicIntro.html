@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Introduction</p>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Welcome to our study! The study will be structured in two parts. In the first part, you will be a part
+        of a board of directors together with the participants surrounding you. Your goal will be to together decide on which new
+        product to launch. In the second part, you will be asked to fill out a few short questionnaires.
+    </p>
+    <p>
+        However, before starting the first part of the study, we kindly ask you to choose a nickname. Please note that
+        the chosen nickname should <b>NOT</b> in any way resemble your actual first name or surname. The chosen nickname
+        will be displayed to other participants while choosing which new product to launch.
+    </p>
+
+    {% formfield player.nick_name label='Please type the chosen nickname in the box below:' %}
+
+    <br>
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}

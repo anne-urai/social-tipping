@@ -1,0 +1,107 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Product launch task</p>
+{% endblock %}
+
+{% block content %}
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <div id="container" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto"></div>
+    <script>
+    Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: 0,
+        plotShadow: false
+    },
+    title: {
+        text: '<p font-size:20px"><b>Preferences in round {{ subsession.round_number }}:</b></p>',
+        align: 'center',
+        y: 80
+    },
+    credits: {
+        enabled: false
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            dataLabels: {
+                enabled: true,
+                distance: -25,
+                style: {
+                    fontWeight: 'italic',
+                    color: 'white'
+                }
+            },
+            startAngle: -90,
+            endAngle: 90,
+            center: ['50%', '75%'],
+            size: '100%'
+        }
+    },
+    series: [{
+        type: 'pie',
+        name: 'Percentage of participants that chose the given name:',
+        innerSize: '50%',
+        data: [
+            ['Tao ({{ chose_tao }}%)' , {{ chose_tao }}],
+            ['Eta({{ chose_eta }}%)', {{ chose_eta }}],
+        ]
+    }],
+});
+    </script>
+
+    {% if not player.id_in_group == 3 and not player.id_in_group == 5 and not player.id_in_group == 9 and not player.id_in_group == 13 %}
+    <table align="center">
+        <tr>
+            <td style="text-align: center"><b>Nicknames of participants that chose Tao</b>:</td>
+            <td>&nbsp &nbsp &nbsp &nbsp &nbsp</td>
+            <td style="text-align: center"><b>Nicknames of participants that chose Eta</b>:</td>
+        </tr>
+        <tr>
+            <td>
+            <table class="table">
+                {% for tao in names_tao %}
+                <tr>
+                        <td style="text-align: center"><i>{{ tao }}</i></td>
+                </tr>
+                {% endfor %}
+            </table>
+            </td>
+            <td></td>
+            <td>
+            <table class="table">
+                {% for eta in names_eta %}
+                <tr>
+                        <td style="text-align: center"><i>{{ eta }}</i></td>
+                </tr>
+                {% endfor %}
+            </table>
+            </td>
+        </tr>
+    </table>
+    {% endif %}
+
+    <br>
+    <div style="text-align: center">{% next_button %}</div>
+
+    <input type="hidden" name="timeResults" id="timeResults"/> 
+    <script>
+        var pageTimePassed = 0;
+        var pageTimerNr = -1;
+        function pageTick() {
+            pageTimePassed++
+            document.getElementById("timeResults").value = pageTimePassed;
+        }
+        window.onload = function() { 
+            if(pageTimerNr == -1){
+                pageTimerNr = setInterval(pageTick, 1);
+            } 
+        };
+    </script>
+
+{% endblock %}

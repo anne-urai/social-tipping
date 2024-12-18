@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Product launch task</p>
+{% endblock %}
+
+{% block content %}
+
+    <br>
+    <p style="text-align: center; font-size:20px"><b>Round {{ subsession.round_number }}</b></p>
+
+    <p style="text-align: center"><br>In this round, which of the New Products would you endorse if you wanted to maximise your profit?</p>
+    <div style="text-align: center">
+        <button name="conf_choice" value="Tao" class="btn btn-primary btn-large">Tao</button>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <button name="conf_choice" value="Eta" class="btn btn-primary btn-large">Eta</button>
+    </div>
+
+    <input type="hidden" name="timeChoice" id="timeChoice"/> 
+    <script>
+        var pageTimeElapsed = 0;
+        var pageTimerID = -1;
+        function pageTick() {
+            pageTimeElapsed++
+            document.getElementById("timeChoice").value = pageTimeElapsed;
+        }
+        window.onload = function() { 
+            if(pageTimerID == -1){
+                pageTimerID = setInterval(pageTick, 1);
+            } 
+        };
+    </script>
+
+    {{ form.conf_choice.errors }}
+
+{% endblock %}

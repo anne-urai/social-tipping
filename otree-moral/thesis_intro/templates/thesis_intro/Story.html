@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Part 1: Product launch task</p>
+{% endblock %}
+
+{% block content %}
+
+    <p style="text-align: center"><i><b>Instructions 3/4: Product information</b></i></p>
+    
+    <p><br />
+        The product <b>Tao</b> will be produced in a very <b>efficient</b> way to distribute the product as fast as possible.
+    </p>
+
+    <p>
+        The product <b>Eta</b> will be produced in a <b>sustainable</b> way to reduce environmental impact of production and packaging.
+    </p>
+
+    <p><br />
+        In case you have any questions regarding the task or instructions, <i>please ask the experimenter now</i>.<br />
+        If you feel like you fully understand the instructions, you may click on the 'Next' button below and begin
+        answering questions testing your understanding of the game.
+    </p>
+
+    <br>
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}

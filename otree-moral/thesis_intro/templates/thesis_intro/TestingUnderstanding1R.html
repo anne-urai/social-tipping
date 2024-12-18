@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Product launch task</p>
+{% endblock %}
+
+{% block content %}
+
+    <p style="text-align: center"><i><b>Understanding of the task</b></i></p>
+
+        <p style="text-align: center">Your answer is {% if player.und1 %}<span style="color: limegreen">correct</span>{% else %}<span style="color: red">wrong</span>{% endif %}.
+            Your task in this part of the study will be to, in each round, endorse one of the New Products.</p>
+
+    <div style="text-align: center">{% next_button %}</div>
+{% endblock %}

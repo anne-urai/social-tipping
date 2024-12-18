@@ -1,0 +1,33 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p style="text-align: center; color: #017AFF">Questionnaire 4: Climate Policy Support</p>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        The next questionnaires are about your attitudes towards climate change.
+        This first questionnaire is about how much you support climate policies.
+        Please rate on a scale of 0 (not at all) to 10 (very much) how much you agree with these policies.
+    </p>
+
+    <br>
+
+<table class="table">
+    {% for field in form %}
+        <tr>
+            <td style="text-align: center">{{ field.label }}</td>
+            {% for choice in field %}
+                <td>{{ choice }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+    <br>
+
+    <div style="text-align: center">{% next_button %}</div>
+
+{% endblock %}
