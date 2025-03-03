@@ -1,0 +1,7 @@
+- otree output, add codebook (see Jdrive for Eveline's comments on what the code does)
+	- blank responses: pilot round (different session code)
+	- 3, 5, 9, and 13 are always bots!
+	- `conf_choice` includes real participants and confederates
+	- `chosen_name` = what real participants chose (confederates get an X)
+	- `chose_eta` and `chose_tao`: responses from all real people
+	- `timeChoice` + `timeResults` are the RTs from making the choice and watching the results page.
