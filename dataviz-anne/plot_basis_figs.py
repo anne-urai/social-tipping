@@ -25,10 +25,8 @@ big_df = []
 for f in reversed(all_files):
     # load in the raw datafile
     print(f)
-    try:
-        df = pd.read_csv(f)
-    except:
-        df = pd.read_csv(f, sep=';') # for some reason oTree uses ; as a separator sometimes
+    try: df = pd.read_csv(f)
+    except: df = pd.read_csv(f, sep=';') # for some reason oTree uses ; as a separator sometimes
 
     ## clean up to keep only the data that I need
     find_response_columns = ['session_code', 'participant.code', 'participant.id_in_session', #'nick_name',
@@ -43,7 +41,6 @@ for f in reversed(all_files):
     df2["var"] = round[3]
     df2["player"] = df2["participant.code"]
     #df2["player_id"] = df2["participant.id_in_session"]
-
 
     #TODO: which players are bots? what about the 3 without RTs or choices?
     #  Good to note is that the players sitting in for confederate bots were always players 3, 5, 9, and 13 in the groups.
