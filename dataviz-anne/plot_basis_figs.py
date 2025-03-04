@@ -79,7 +79,13 @@ for f in (all_files):
 df = pd.concat(big_df).sort_values(by=['game', 
                                        'session', 'round', 
                                        'player_id', 'player', 'is_bot']).reset_index()
-df.to_csv('/data/clean_df.csv')
+# remove sessions without any data in them
+sess_mean = df.groupby(['session'])['timeChoice'].mean().reset_index()
+drop_sess = sess_mean[np.isnan(sess_mean['timeChoice'])]['session']
+df = df[~df['session'].isin(list(drop_sess))]
+
+# save
+df.to_csv('data/clean_df.csv')
 
 #%% some plotting
 # lineplot of average behavior
@@ -112,16 +118,24 @@ g.savefig(Path(figures_folder) / 'mean_behavior_per_group.png')
 
 # %% heatmaps
 
-fig, axs = plt.subplots(df.session.nunique(), 2, 
+vars = ['player_choice_eta', 'timeChoice', 'timeResults', 'displayed_choice_eta']
+fig, axs = plt.subplots(df.session.nunique(), len(vars), 
                         sharex=True, sharey=True)
 
-for vix, v in enumerate(['player_choice_eta', 'displayed_choice_eta']):
+for vix, v in enumerate(vars):
     for dix, (sess, d) in enumerate(df.groupby('session')):
         sns.heatmap(data=d.pivot(index='player_id', 
                                     columns='round', 
                                     values=v), ax=axs[dix, vix],
-                                    linewidths=.5, cbar=False)
-        axs[dix, vix].set(title=sess, xticks=range(df['round'].max()), yticks=range(df['player_id'].max()),
-                          xlabel='')
+                                    linewidths=.5, cbar=True)
+        axs[dix, vix].set(title=sess, xticks=range(df['round'].max()), 
+                          yticks=range(df['player_id'].max()),
+                          xlabel='', ylabel='')
+        if dix == 0:
+            axs[dix, vix].set(title=v)
+        else:
+            axs[dix, vix].set(title='')
+
+fig.tight_layout()
 
 # %%
